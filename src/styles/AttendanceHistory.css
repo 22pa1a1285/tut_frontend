@@ -1,0 +1,113 @@
+/* AttendanceHistory.css */
+.attendance-history-section {
+  background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+  border-radius: 1.5rem;
+  box-shadow: 0 8px 32px rgba(80, 17, 203, 0.10);
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+}
+.attendance-history-table-wrapper {
+  border-radius: 1.2rem;
+  overflow-x: auto;
+  box-shadow: 0 4px 24px rgba(80, 17, 203, 0.08);
+  background: rgba(255,255,255,0.95);
+  border: 1.5px solid #e3e8f0;
+  backdrop-filter: blur(6px);
+}
+.attendance-history-table {
+  min-width: 900px;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  font-size: 1.08rem;
+  background: rgba(255,255,255,0.95);
+}
+.attendance-history-table th, .attendance-history-table td {
+  vertical-align: middle;
+  border-right: 1.5px solid #e3e8f0;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.attendance-history-table thead th {
+  background: linear-gradient(90deg, #a18cd1 0%, #43cea2 100%) !important;
+  color: #23272f;
+  font-weight: 700;
+  border-bottom: 3px solid #a18cd1;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.attendance-history-table .student-name-cell {
+  font-weight: 600;
+  color: #4f46e5;
+  background: #f0f7ff;
+  border-left: 3px solid #a18cd1;
+  position: sticky;
+  left: 0;
+  z-index: 2;
+}
+.attendance-history-table .attendance-cell {
+  cursor: pointer;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.05rem;
+  background: #f8fafc;
+  transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+}
+.attendance-history-table .attendance-cell:hover {
+  background: #e0e7ff !important;
+  color: #4f46e5;
+  box-shadow: 0 2px 12px #a18cd133;
+  z-index: 1;
+}
+.attendance-history-table .table-success.attendance-cell {
+  background: linear-gradient(90deg, #d1fae5 0%, #a7f3d0 100%) !important;
+  color: #065f46;
+}
+.attendance-history-table .table-danger.attendance-cell {
+  background: linear-gradient(90deg, #fee2e2 0%, #fecaca 100%) !important;
+  color: #991b1b;
+}
+.attendance-history-table tbody tr {
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.attendance-history-table tbody tr:hover {
+  background: #f3f3fa !important;
+  box-shadow: 0 2px 12px #a18cd133;
+}
+@media (max-width: 600px) {
+  .attendance-history-section {
+    padding: 1rem 0.3rem;
+    font-size: 0.95rem;
+  }
+  .attendance-history-table {
+    min-width: 500px;
+    font-size: 0.95rem;
+  }
+  .attendance-history-table th, .attendance-history-table td {
+    padding: 0.3rem 0.2rem;
+  }
+}
+@media (min-width: 601px) and (max-width: 900px) {
+  .attendance-history-section {
+    padding: 1.5rem 0.7rem;
+    font-size: 1.05rem;
+  }
+  .attendance-history-table {
+    min-width: 700px;
+    font-size: 1.05rem;
+  }
+  .attendance-history-table th, .attendance-history-table td {
+    padding: 0.5rem 0.4rem;
+  }
+}
+@media (min-width: 901px) {
+  .attendance-history-section {
+    padding: 2rem 1rem;
+    font-size: 1.1rem;
+  }
+  .attendance-history-table {
+    min-width: 900px;
+    font-size: 1.08rem;
+  }
+  .attendance-history-table th, .attendance-history-table td {
+    padding: 0.7rem 0.5rem;
+  }
+} 
