@@ -22,8 +22,8 @@ export default function AttendanceManagement() {
   useEffect(() => {
     setLoading(true);
     Promise.all([
-      axios.get('http://localhost:5000/api/students'),
-      axios.get('http://localhost:5000/api/students/attendance-records')
+      axios.get('https://tut-backend.onrender.com/api/students'),
+      axios.get('https://tut-backend.onrender.com/api/students/attendance-records')
     ])
       .then(([studentsRes, attendanceRes]) => {
         setStudents(studentsRes.data);
@@ -43,7 +43,7 @@ export default function AttendanceManagement() {
     setStatus('loading');
     setMessage('');
     try {
-      await axios.post('http://localhost:5000/api/students/attendance', { date, attendance });
+      await axios.post('https://tut-backend.onrender.com/api/students/attendance', { date, attendance });
       setStatus('success');
       setMessage('Attendance submitted!');
       setShowHistory(true);
@@ -87,7 +87,7 @@ export default function AttendanceManagement() {
     const rec = attendanceRecords.find(r => r.studentId === studentId && r.date === date);
     const newStatus = rec && rec.status === 'Present' ? 'Absent' : 'Present';
     try {
-      await axios.post('http://localhost:5000/api/students/attendance', {
+      await axios.post('https://tut-backend.onrender.com/api/students/attendance', {
         date,
         attendance: [{ studentId, status: newStatus }]
       });

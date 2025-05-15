@@ -34,7 +34,7 @@ export default function EditStudent() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get(`http://localhost:5000/api/students/${id}`)
+    axios.get(`https://tut-backend.onrender.com/api/students/${id}`)
       .then(res => setForm(res.data))
       .catch(() => setError('Failed to fetch student'))
       .finally(() => setLoading(false));
@@ -64,7 +64,7 @@ export default function EditStudent() {
     setStatus('loading');
     setError('');
     try {
-      await axios.put(`http://localhost:5000/api/students/${id}`, form);
+      await axios.put(`https://tut-backend.onrender.com/api/students/${id}`, form);
       setStatus('success');
       setTimeout(() => navigate(-1), 1200);
     } catch (err) {

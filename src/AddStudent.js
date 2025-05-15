@@ -55,7 +55,7 @@ export default function AddStudent() {
     setStatus('loading');
     setError('');
     try {
-      await axios.post('http://localhost:5000/api/students', form);
+      await axios.post('https://tut-backend.onrender.com/api/students', form);
       setStatus('success');
       setTimeout(() => setStatus('idle'), 1500);
       setForm({

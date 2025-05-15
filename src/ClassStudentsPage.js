@@ -14,7 +14,7 @@ export default function ClassStudentsPage() {
   useEffect(() => {
     setLoading(true);
     setError('');
-    axios.get(`http://localhost:5000/api/students/by-class?class=${classId}`)
+    axios.get(`https://tut-backend.onrender.com/api/students/by-class?class=${classId}`)
       .then(res => setStudents(res.data))
       .catch(() => setError('Failed to fetch students'))
       .finally(() => setLoading(false));
@@ -23,7 +23,7 @@ export default function ClassStudentsPage() {
   const handleDelete = async (id) => {
     if (!window.confirm('Are you sure you want to delete this student?')) return;
     try {
-      await axios.delete(`http://localhost:5000/api/students/${id}`);
+      await axios.delete(`https://tut-backend.onrender.com/api/students/${id}`);
       setStudents(students => students.filter(s => s._id !== id));
       setSuccessMsg('Student deleted successfully!');
       setTimeout(() => setSuccessMsg(''), 1500);

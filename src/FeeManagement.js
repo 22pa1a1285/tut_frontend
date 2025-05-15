@@ -44,7 +44,7 @@ export default function FeeManagement() {
 
   useEffect(() => {
     setLoading(true);
-    axios.get('http://localhost:5000/api/students/fees')
+    axios.get('https://tut-backend.onrender.com/api/students/fees')
       .then(res => setStudents(res.data))
       .catch(() => setError('Failed to fetch students'))
       .finally(() => setLoading(false));
@@ -70,7 +70,7 @@ export default function FeeManagement() {
     setSuccess('');
     try {
       await Promise.all(students.map(s =>
-        axios.put(`http://localhost:5000/api/students/${s._id}/fees`, { fees: s.fees })
+        axios.put(`https://tut-backend.onrender.com/api/students/${s._id}/fees`, { fees: s.fees })
       ));
       setSuccess('Changes saved successfully!');
       setTimeout(() => setSuccess(''), 1500);
