@@ -53,14 +53,6 @@ export default function AttendanceManagement() {
     }
   };
 
-  const getAttendanceStats = (studentId) => {
-    const records = attendanceRecords.filter(r => r.studentId === studentId);
-    const total = records.length;
-    const present = records.filter(r => r.status === 'Present').length;
-    const percent = total > 0 ? ((present / total) * 100).toFixed(1) : 'N/A';
-    return { total, present, percent };
-  };
-
   // Filtered dates
   const allDates = Array.from(new Set(attendanceRecords.map(r => r.date))).sort()
     .filter(date => (!filterStart || date >= filterStart) && (!filterEnd || date <= filterEnd));

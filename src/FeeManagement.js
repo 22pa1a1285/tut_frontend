@@ -36,12 +36,6 @@ export default function FeeManagement() {
   const tableWrapperRef = useRef(null);
   const navigate = useNavigate();
 
-  const scrollTable = (dir) => {
-    if (tableWrapperRef.current) {
-      tableWrapperRef.current.scrollBy({ left: dir * 300, behavior: 'smooth' });
-    }
-  };
-
   useEffect(() => {
     setLoading(true);
     axios.get('https://tut-backend.onrender.com/api/students/fees')
@@ -116,7 +110,6 @@ export default function FeeManagement() {
                       const months = getMonthYearListFromJune();
                       const rowClass = student.paidAdvance === 'Yes' ? 'paid-advance' : 'not-paid-advance';
                       const nameClass = student.paidAdvance === 'Yes' ? 'name-cell paid-advance' : 'name-cell not-paid-advance';
-                      const joinDate = new Date(student.dateOfJoining);
                       return (
                         <tr key={student._id} className={rowClass}>
                           <td className={nameClass}>{student.name}</td>
@@ -124,7 +117,6 @@ export default function FeeManagement() {
                           <td>{student.dateOfJoining}</td>
                           <td>{student.phone}</td>
                           {months.map(({ month, year, key }) => {
-                            const joinDate = new Date(student.dateOfJoining);
                             const paid = student.fees?.[key]?.paid;
                             return (
                               <td key={key} style={{ minWidth: 90 }}>
